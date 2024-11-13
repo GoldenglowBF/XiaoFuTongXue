@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理面板</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <h1>管理面板</h1>
+            <nav>
+                <button class="nav-btn active" data-page="home">
+                    <i class="fas fa-home"></i>
+                    <span>主页</span>
+                </button>
+                <button class="nav-btn" data-page="users">
+                    <i class="fas fa-users"></i>
+                    <span>用户管理</span>
+                </button>
+                <button class="nav-btn" data-page="rankings">
+                    <i class="fas fa-trophy"></i>
+                    <span>排行数据</span>
+                </button>
+                <button class="nav-btn" data-page="achievements">
+                    <i class="fas fa-medal"></i>
+                    <span>成就系统</span>
+                </button>
+            </nav>
+        </div>
+
+        <!-- 主要内容区域 -->
+        <div class="main-content">
+            <!-- 主页 -->
+            <div class="page active" id="home">
+                <h2>管理员信息</h2>
+                <div class="admin-info">
+                    <div class="info-item">
+                        <label>用户名：</label>
+                        <span id="adminUsername">Admin</span>
+                    </div>
+                    <div class="info-item">
+                        <label>修改密码：</label>
+                        <input type="password" id="newPassword" placeholder="新密码">
+                        <input type="password" id="confirmPassword" placeholder="确认密码">
+                        <button class="btn" onclick="changePassword()">更新密码</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 用户管理 -->
+            <div class="page" id="users">
+                <h2>用户管理</h2>
+                <div class="user-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>名称</th>
+                                <th>账号</th>
+                                <th>密码</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userTableBody">
+                            <!-- 用户数据将通过JavaScript动态填充 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 排行数据 -->
+            <div class="page" id="rankings">
+                <h2>排行数据</h2>
+                <div class="rankings-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>排名</th>
+                                <th>名称</th>
+                                <th>账号</th>
+                                <th>游戏数据</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rankingsTableBody">
+                            <!-- 排行数据将通过JavaScript动态填充 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 成就系统 -->
+            <div class="page" id="achievements">
+                <h2>成就系统</h2>
+                <div class="achievements-list">
+                    <div class="achievement-filters">
+                        <select id="userSelect">
+                            <option value="">选择用户</option>
+                        </select>
+                    </div>
+                    <div class="achievement-stats">
+                        <div class="stat-card">
+                            <h3>已完成成就</h3>
+                            <span id="completedAchievements">0</span>/30
+                        </div>
+                        <div class="stat-card">
+                            <h3>未完成成就</h3>
+                            <span id="remainingAchievements">30</span>/30
+                        </div>
+                    </div>
+                    <div class="achievement-grid" id="achievementGrid">
+                        <!-- 成就列表将通过JavaScript动态填充 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/admin.js"></script>
+</body>
+</html>
