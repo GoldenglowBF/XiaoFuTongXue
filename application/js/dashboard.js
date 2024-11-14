@@ -1,15 +1,43 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // 获取所有菜单项和内容卡片
+    // 获取所有必要的元素
     const menuItems = document.querySelectorAll('.menu-item');
     const cards = document.querySelectorAll('.card');
     const featureCards = document.querySelectorAll('.feature-card');
-
-    // 侧边栏展开/收起功能
     const sidebar = document.querySelector('.sidebar');
     const toggleBtn = document.querySelector('.toggle-sidebar');
-    
+
+    // 检查是否是移动设备
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+
+    // 侧边栏展开/收起功能
     toggleBtn.addEventListener('click', () => {
         sidebar.classList.toggle('collapsed');
+        // 保存侧边栏状态到本地存储
+        localStorage.setItem('sidebarState', sidebar.classList.contains('collapsed') ? 'collapsed' : 'expanded');
+    });
+
+    // 页面加载时恢复侧边栏状态
+    window.addEventListener('load', () => {
+        const savedState = localStorage.getItem('sidebarState');
+        if (savedState === 'collapsed') {
+            sidebar.classList.add('collapsed');
+        }
+    });
+
+    // 窗口大小改变时处理响应式行为
+    window.addEventListener('resize', () => {
+        if (!isMobile() && sidebar.classList.contains('collapsed')) {
+            // 在PC端保持收缩状态
+            sidebar.style.width = '70px';
+        } else if (!isMobile()) {
+            // 在PC端展开状态
+            sidebar.style.width = '250px';
+        } else {
+            // 在移动端重置宽度
+            sidebar.style.width = '100%';
+        }
     });
 
     // 页面切换功能
@@ -27,6 +55,10 @@ document.addEventListener('DOMContentLoaded', function() {
         cards.forEach(card => {
             if (card.id === pageId) {
                 card.classList.add('active');
+                // 如果是移动设备，点击后自动收起侧边栏
+                if (isMobile()) {
+                    sidebar.classList.add('collapsed');
+                }
             } else {
                 card.classList.remove('active');
             }
@@ -38,7 +70,9 @@ document.addEventListener('DOMContentLoaded', function() {
         item.addEventListener('click', function(e) {
             e.preventDefault();
             const pageId = this.getAttribute('data-page');
-            switchPage(pageId);
+            if (pageId) {
+                switchPage(pageId);
+            }
         });
     });
 
@@ -46,7 +80,9 @@ document.addEventListener('DOMContentLoaded', function() {
     featureCards.forEach(card => {
         card.addEventListener('click', function() {
             const pageId = this.getAttribute('data-page');
-            switchPage(pageId);
+            if (pageId) {
+                switchPage(pageId);
+            }
         });
     });
 
@@ -108,7 +144,9 @@ document.addEventListener('DOMContentLoaded', function() {
     logoutBtn.addEventListener('click', (e) => {
         e.preventDefault();
         if (confirm('确定要退出登录吗？')) {
-            // 这里添加退出登录的逻辑，比如跳转到登录页面
+            // 清除本地存储的侧边栏状态
+            localStorage.removeItem('sidebarState');
+            // 跳转到登录页面
             window.location.href = 'login.html';
         }
     });
@@ -134,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const newPassword = document.getElementById('new-password').value;
         const confirmPassword = document.getElementById('confirm-password').value;
 
-        // 简单的表单验证
+        // 表单验证
         if (!currentPassword || !newPassword || !confirmPassword) {
             alert('请填写所有密码字段');
             return;
