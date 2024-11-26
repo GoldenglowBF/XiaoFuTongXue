@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户主页</title>
+    <link href="{% static 'css/all.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="header-content">
+                    <button class="toggle-sidebar">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h2>用户面板</h2>
+                </div>
+            </div>
+            <div class="sidebar-content">
+                <div class="sidebar-menu">
+                    <a href="#" class="menu-item active" data-page="home">
+                        <i class="fas fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    <a href="#" class="menu-item" data-page="interview">
+                        <i class="fas fa-comments"></i>
+                        <span>面试模拟</span>
+                    </a>
+                    <a href="#" class="menu-item" data-page="new-year">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>决战拜年</span>
+                    </a>
+                    <a href="#" class="menu-item" data-page="bargain">
+                        <i class="fas fa-tags"></i>
+                        <span>砍价游戏</span>
+                    </a>
+                </div>
+                <!-- 底部按钮 -->
+                <div class="sidebar-footer">
+                    <a href="#" class="menu-item" data-page="change-password">
+                        <i class="fas fa-key"></i>
+                        <span>修改密码</span>
+                    </a>
+                    <a href="#" class="menu-item logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>退出登录</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+          <!-- 主要内容区域 -->
+        <div class="main-content">
+            <!-- 主页内容 -->
+            <div class="card active" id="home">
+                <!-- 欢迎公告 -->
+                <div class="welcome-banner">
+                    <h1>欢迎回来！</h1>
+                    <p>这里是您的个人AI助手中心，随时为您提供帮助。</p>
+                </div>
+
+                <!-- 功能介绍区域 -->
+                <div class="features-grid">
+                    <div class="feature-card" data-page="web-design">
+                        <i class="fas fa-palette"></i>
+                        <h3>网页设计</h3>
+                        <p>AI辅助网页设计，让您的创意快速成型</p>
+                    </div>
+                    <div class="feature-card" data-page="interview">
+                        <i class="fas fa-comments"></i>
+                        <h3>面试模拟</h3>
+                        <p>模拟真实面试场景，提升应聘成功率</p>
+                    </div>
+                    <div class="feature-card" data-page="new-year">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>决战拜年</h3>
+                        <p>智能拜年话术生成，让祝福更有温度</p>
+                    </div>
+                    <div class="feature-card" data-page="bargain">
+                        <i class="fas fa-tags"></i>
+                        <h3>砍价游戏</h3>
+                        <p>趣味性砍价互动，提升用户参与度</p>
+                    </div>
+                </div>
+
+                <!-- 公告区域 -->
+                <div class="announcement-section">
+                    <h2>系统公告</h2>
+                    <div class="announcement-list">
+                        <div class="announcement-item">
+                            <span class="date">2024-11-13</span>
+                            <p>• AI助手系统全新升级，支持更多智能对话场景</p>
+                        </div>
+                        <div class="announcement-item">
+                            <span class="date">2024-11-12</span>
+                            <p>• 新增多项实用功能，欢迎体验</p>
+                        </div>
+                        <div class="announcement-item">
+                            <span class="date">2024-11-11</span>
+                            <p>• 界面优化更新，操作更加便捷</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 网页设计页面 -->
+            <div class="card" id="web-design">
+                <div class="feature-header">
+                    <h2>AI网页设计助手</h2>
+                    <p>描述您的需求，让AI帮您设计网页</p>
+                </div>
+                <div class="chat-container">
+                    <div class="chat-messages"></div>
+                    <div class="chat-input">
+                        <textarea placeholder="请描述您需要的网页设计..."></textarea>
+                        <button class="send-btn">发送</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 面试模拟页面 -->
+            <div class="card" id="interview">
+                <div class="feature-header">
+                    <h2>AI面试官</h2>
+                    <p>模拟真实面试场景，提升您的面试技巧</p>
+                </div>
+                <div class="chat-container">
+                    <div class="chat-messages"></div>
+                    <div class="chat-input">
+                        <textarea placeholder="准备好开始面试了吗？"></textarea>
+                        <button class="send-btn">发送</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 决战拜年页面 -->
+            <div class="card" id="new-year">
+                <div class="feature-header">
+                    <h2>拜年话术生成器</h2>
+                    <p>生成温馨独特的拜年祝福语</p>
+                </div>
+                <div class="chat-container">
+                    <div class="chat-messages"></div>
+                    <div class="chat-input">
+                        <textarea placeholder="让AI帮您准备拜年话术..."></textarea>
+                        <button class="send-btn">发送</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 砍价游戏页面 -->
+            <div class="card" id="bargain">
+                <div class="feature-header">
+                    <h2>智能砍价助手</h2>
+                    <p>体验智能化的砍价互动</p>
+                </div>
+                <div class="chat-container">
+                    <div class="chat-messages"></div>
+                    <div class="chat-input">
+                        <textarea placeholder="开始砍价游戏..."></textarea>
+                        <button class="send-btn">发送</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 修改密码页面 -->
+            <div class="card" id="change-password">
+                <div class="feature-header">
+                    <h2>修改密码</h2>
+                    <p>请谨慎修改您的账号密码</p>
+                </div>
+                <div class="password-form">
+                    <div class="form-group">
+                        <label for="current-password">当前密码</label>
+                        <input type="password" id="current-password" placeholder="请输入当前密码">
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">新密码</label>
+                        <input type="password" id="new-password" placeholder="请输入新密码">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">确认新密码</label>
+                        <input type="password" id="confirm-password" placeholder="请再次输入新密码">
+                    </div>
+                    <div class="form-buttons">
+                        <button class="cancel-btn">取消</button>
+                        <button class="confirm-btn">确认修改</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/dashboard.js' %}"></script>
+</body>
+</html>
