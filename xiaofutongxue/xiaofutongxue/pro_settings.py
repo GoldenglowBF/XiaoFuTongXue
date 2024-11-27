@@ -4,10 +4,10 @@
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'xftx',
-        'USER': 'root',
-        'PASSWORD': '123456',
-        'HOST': '127.0.0.1',
-        'PORT': 3306,
+        'NAME': 'xftx',  # 数据库
+        'USER': 'root',  # 用户名
+        'PASSWORD': '123456',  # 密码
+        'HOST': '127.0.0.1',   # ip
+        'PORT': 3306,          # 端口
     }
 }

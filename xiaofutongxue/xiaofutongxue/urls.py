@@ -25,5 +25,5 @@ urlpatterns = [
     path("register/", account.register, name="register"),
     path("home/", account.home, name="home"),
 
-    path('dashboard/<str:nid>/', ai_talk.handle_random_id, name='handle_random_nid'),
+    path('random/nid/', ai_talk.handle_random_id, name='handle_random_nid'),
 ]

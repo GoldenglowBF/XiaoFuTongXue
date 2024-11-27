@@ -119,7 +119,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 HOME_URL = "/home/"
 UI_SESSION_KEY = "user_info"
-UI_WHITE_URL = ["login", "register"]
+UI_WHITE_URL = ["login", "register","handle_random_id"]
 
 ENVS = "local"
 # ENVS = "pro"
