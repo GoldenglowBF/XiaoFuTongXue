@@ -1,5 +1,9 @@
 注意：
+<<<<<<< HEAD
 	版本一：XiaoFuTongXue1 【已不再更新维护】
+=======
+	版本一：XiaoFuTongXue1【已不再更新】
+>>>>>>> a9f6a4f2888db9897af3fa361949dc1dec30df82
 	版本二：xiaofutongxue【最新版本，也是目前所用的版本，版本一已被淘汰】
 
 
