@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}">
+    <style>
+        body {
+            background-image: url('{% static "images/lo-re.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .box {
+            width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 30px;
+            background: rgba(255, 255, 255, 0.3); /* 提高透明度，保证文本清晰可读 */
+            box-shadow: 5px 10px 10px rgb(0 0 0 / 10%);
+            border-radius: 8px; /* 增加圆角效果 */
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+        }
+
+        .error-msg {
+            color: red;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h3>用户注册</h3>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group">
+                <label>{{ field.label }}</label>
+                {{ field }}
+                <span class="error-msg">{{ field.errors.0 }}</span>
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">注册</button>
+        <a href="{% url 'login' %}">我要登录</a>
+    </form>
+</div>
+
+</body>
+</html>
