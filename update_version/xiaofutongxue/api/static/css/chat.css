@@ -1,0 +1,145 @@
+/* 聊天容器样式 */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 100px);
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+/* 消息区域样式 */
+.chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* 消息样式 */
+.message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 80%;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* 用户消息靠右 */
+.user-message {
+    margin-left: auto;
+    flex-direction: row-reverse;
+}
+
+/* AI消息靠左 */
+.ai-message {
+    margin-right: auto;
+}
+
+/* 错误消息居中 */
+.error-message {
+    margin: 0 auto;
+    color: #dc3545;
+}
+
+/* 消息图标样式 */
+.message i {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.user-message i {
+    background-color: #007bff;
+    color: white;
+}
+
+.ai-message i {
+    background-color: #28a745;
+    color: white;
+}
+
+/* 消息内容样式 */
+.message-content {
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.user-message .message-content {
+    background-color: #007bff;
+    color: white;
+    border-top-right-radius: 4px;
+}
+
+.ai-message .message-content {
+    background-color: #e9ecef;
+    color: #212529;
+    border-top-left-radius: 4px;
+}
+
+/* 输入区域样式 */
+.chat-input {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    background-color: white;
+    border-top: 1px solid #dee2e6;
+}
+
+.chat-input textarea {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    resize: none;
+    height: 40px;
+    font-size: 14px;
+    line-height: 1.5;
+    transition: border-color 0.15s ease-in-out;
+}
+
+.chat-input textarea:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.chat-input .send-btn {
+    padding: 8px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.chat-input .send-btn:hover {
+    background-color: #0056b3;
+}
+
+.chat-input .send-btn:active {
+    background-color: #004085;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

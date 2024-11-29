@@ -1,5 +1,7 @@
 注意：
 	版本一：XiaoFuTongXue1
-	版本二：xiaofutongxue【最新版本，也是目前所用的版本，版本一已被淘汰】
+	版本二：last_version【旧版本，也是目前所用的版本，版本一已被淘汰】
+	版本三：update_version【最新版本，也是目前所用的版本，版本二已被淘汰】
+	
 
 
